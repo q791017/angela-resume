@@ -194,8 +194,6 @@ export default function HomePage() {
               <div className="text-sm">{t("english.exam")}</div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-10 lg:gap-14 justify-center lg:w-1/3 w-full">
-          </div>
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
           <Title title={"project.title"} />
