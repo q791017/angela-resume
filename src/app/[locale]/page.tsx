@@ -141,8 +141,8 @@ export default function HomePage() {
         alt="background-image"
         className="fixed z-0 h-screen"
       />
-      <div className="z-10 relative flex w-full flex-col py-5 sm:px-20 gap-20 px-5 max-w-screen-lg mx-auto bg-white/25 shadow-customize">
-        <button onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} className="flex justify-end items-center gap-2 text-sm text-gray-500 py-4"><Translate />{t(`locale.${locale}`)}</button>
+      <div className="z-10 relative flex w-full flex-col py-5 sm:px-20 gap-20 px-5 max-w-screen-lg mx-auto bg-white/50 shadow-customize">
+        <button onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} className="w-fit flex py-2 rounded-md justify-end items-center gap-2 text-sm text-gray-500 px-4 border border-gray-200 shadow-sm hover:bg-gray-100"><Translate />{t(`locale.${locale}`)}</button>
         <div className="flex justify-center my-4 items-center">
           <Image src={avaImage} alt="ava-image" className="min-w-52 max-w-60 w-full h-auto" />
           <div className="flex flex-col gap-2 w-1/2">
