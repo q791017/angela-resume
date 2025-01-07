@@ -1,0 +1,77 @@
+{
+  "locale": {
+    "en-US": "English",
+    "zh-TW": "繁體中文"
+  },
+  "metadata": {
+    "title": "Angela's resume",
+    "description": "Introduction to Angela's resume."
+  },
+  "tool": {
+    "toolTitle": "Tools Used",
+    "language": "Languages and Frameworks",
+    "style": "Styling and Design Tools",
+    "develop": "Development Tools"
+  },
+  "technology": {
+    "technologyTitle": "Technical Skills",
+    "develop": "Development Skills",
+    "test": "Deployment and Testing",
+    "design": "Design and Collaboration"
+  },
+  "technologyDescription": {
+    "develop1": "Experienced in building multilingual websites (i18n) and implementing frontend features using React and Next.js frameworks.",
+    "develop2": "Implemented responsive designs (RWD) and layouts with Tailwind CSS, and mastered basic HTML5/CSS3 skills.",
+    "develop3": "Capable of API integration and CRUD operations, handling dynamic information and multi-level structured data.",
+    "test1": "Proficient in Git version control for effective project management and development tasks.",
+    "test2": "Familiar with Vercel deployment processes and DNS configuration (A Record) for custom domain binding.",
+    "test3": "Performed code quality checks using SonarLint to ensure security and performance.",
+    "design1": "Designed UI with Figma and collaborated with stakeholders to adjust UX designs for enhanced user experiences.",
+    "design2": "Possess cross-department communication skills to integrate design and development needs, delivering efficient and goal-oriented project outcomes."
+  },
+  "school": {
+    "title": "Education",
+    "school": "Chaoyang University of Technology",
+    "department": "Department of Industrial Design"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "company1": "CCL Design (Singapore) Holding PTE. LTD Taiwan Branch",
+    "position1": "Artist Engineer",
+    "description1": "Designed safety compliance labels and collaborated across teams to meet production standards.",
+    "company2": "Micro-Star International Co., Ltd.",
+    "position2": "Industrial Designer",
+    "description2": "Developed exterior designs and production processes for gaming laptops and desktops, including custom solutions for clients."
+  },
+  "english": {
+    "title": "Language Proficiency",
+    "exam": "TOEIC Score 720"
+  },
+  "project": {
+    "title": "Catholic Friendship House Website",
+    "toolTitle": "Development Tools and Frameworks",
+    "design": "Design Tools: Figma",
+    "frameWork": "Frontend Frameworks: Next.js, React, TypeScript",
+    "style": "Styling: Tailwind CSS, Ant Design",
+    "storage": "Backend and Storage: MongoDB",
+    "auth": "Authentication and Authorization: NextAuth, Google OAuth",
+    "deploy": "Image Storage and Deployment: Vercel Blob, Vercel Hosting",
+    "intl": "Internationalization: i18n",
+    "listener": "Monitoring Tools: Sentry",
+    "dns": "DNS Configuration: A Record for Custom Domain Routing",
+    "quality": "Code Quality Check: SonarLint",
+    "functionTitle": "Feature Modules",
+    "user": "User Interface: About House, Activities, Upcoming Events, User Pages",
+    "userDetail": "Activity display, filtering queries, and event registrations.",
+    "manage": "Admin Interface",
+    "manageDetail1": "CRUD operations for activities and categories.",
+    "manageDetail2": "Manage account permissions and registration results.",
+    "manageDetail3": "Export registration data - Excel files."
+  },
+  "ui": {
+    "title": "Web Design",
+    "value1": "Daily UI - 30 Days Challenge",
+    "value2": "Figma Demo",
+    "value3": "Awwwards - Honorable Mention"
+  }
+}

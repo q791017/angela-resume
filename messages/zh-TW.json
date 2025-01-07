@@ -1,0 +1,77 @@
+{
+  "locale": {
+    "en-US": "English",
+    "zh-TW": "繁體中文"
+  },
+  "metadata": {
+    "title": "雅涵的履歷",
+    "description": "關於雅涵的履歷介紹"
+  },
+  "tool": {
+    "toolTitle": "使用工具",
+    "language": "語言與框架",
+    "style": "樣式與設計工具",
+    "develop": "開發工具"
+  },
+  "technology": {
+    "technologyTitle": "工作技能",
+    "develop": "開發技能",
+    "test": "部署與測試",
+    "design": "設計與協作"
+  },
+  "technologyDescription": {
+    "develop1": "使用 React 與 Next.js 框架，有多語系網站建置（i18n）與實現前端功能經驗。",
+    "develop2": "使用 Tailwind CSS 實現響應式設計（RWD）與切版，並掌握 HTML5/CSS3 基礎技能。",
+    "develop3": "API 調用與 CRUD 操作，有處理動態資訊與多層級結構資料的經驗。",
+    "test1": "使用 Git 版本控制，能有效支援專案管理與開發任務。",
+    "test2": "熟悉 Vercel 部署流程，並能配置 DNS（A Record）進行自訂域名綁定。",
+    "test3": "使用 SonarLint進行品質檢查，提供程式安全性與效能。",
+    "design1": "使用 Figma 設計 UI，並與相關單位討論需求，調整 UX 設計以提升使用者體驗。",
+    "design2": "具備跨部門溝通能力，能整合設計與開發需求，完成高效且符合目標的專案成果。"
+  },
+  "school": {
+    "title": "學歷",
+    "school": "私立朝陽科技大學",
+    "department": "工業設計學系"
+  },
+  "experience": {
+    "title": "工作經驗",
+    "company1": "新加坡商絲艾產品標識有限公司台灣分公司",
+    "position1": "繪圖設計工程師",
+    "description1": "負責安全規範標籤的設計與開發，跨公司及部門協作整合需求，並確保產品符合量產規格與品質標準。",
+    "company2": "微星科技股份有限公司",
+    "position2": "工業設計師",
+    "description2": "負責電競筆記型電腦、桌上型電腦的外觀設計與量產流程開發，也提供其他公司客製化設計需求。"
+  },
+  "english": {
+    "title": "語文能力",
+    "exam": "多益測驗 720"
+  },
+  "project": {
+    "title": "教友中心網站製作",
+    "toolTitle": "開發工具與框架",
+    "design": "設計工具：Figma",
+    "frameWork": "前端框架：Next.js、React、TypeScript",
+    "style": "樣式設計：Tailwind CSS、Ant Design",
+    "storage": "後端與資料存儲：MongoDB",
+    "auth": "驗證與權限：NextAuth、Google OAuth",
+    "deploy": "圖片存儲與網站部署：Vercel Blob、Vercel 部署",
+    "intl": "國際化支持：i18n",
+    "listener": "監控工具：Sentry",
+    "dns": "DNS 設定：A Record 實現自訂域名跳轉",
+    "quality": "程式品質檢查：SonarLint",
+    "functionTitle": "功能模組說明",
+    "user": "使用者介面：關於中心、中心活動、近期活動、使用者頁面",
+    "userDetail": "活動顯示、篩選查詢、報名活動",
+    "manage": "管理介面",
+    "manageDetail1": "CRUD 操作活動內容與類別。",
+    "manageDetail2": "管理帳號權限與報名結果。",
+    "manageDetail3": "匯出報名資料 - Excel 檔案。"
+  },
+  "ui": {
+    "title": "網頁設計",
+    "value1": "Daily UI - 30天挑戰",
+    "value2": "Figma Demo",
+    "value3": "Awwwards - Honorable Mention"
+  }
+}
