@@ -3,6 +3,8 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+
 type ParamsProps = {
   params: Promise<{ locale: Locale }>;
 }
@@ -37,6 +39,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
