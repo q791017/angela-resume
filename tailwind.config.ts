@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        customize: '0 0 40px 0 rgb(0 0 0 /0.15)',
+        customize: '0 0 50px 0 rgb(0 0 0 /0.15)',
+        hover: '0 0 30px 0 rgb(0 0 0 /0.25)',
       },
     },
   },

@@ -197,8 +197,8 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
           <Title title={"project.title"} />
-          <a href="https://friendship.catholic.org.tw/" className="text-gray-400 font-semibold hover:brightness-90 hover:duration-400 max-w-fit mb-4">
-            <Image src={webImage} alt="webImage" className="rounded-md shadow-customize" />
+          <a href="https://friendship.catholic.org.tw/" className="text-gray-400 font-semibold rounded-md shadow-customize hover:shadow-hover hover:duration-400 max-w-fit mb-4">
+            <Image src={webImage} alt="webImage" className="rounded-md border border-gray-200 " />
           </a>
           {projectInfoTool.map(({ title, items }) => <div key={title} className="flex flex-col gap-2 ml-4">
             <div className="font-semibold">{t(`project.${title}`)}</div>
@@ -216,7 +216,11 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
           <Title title={"ui.title"} />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{cardItems.map(({ href, imageSrc, value }) => <Card key={value} href={href} imageSrc={imageSrc} cardValue={value} />)}</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cardItems.map(({ href, imageSrc, value }) =>
+              <Card key={value} href={href} imageSrc={imageSrc} cardValue={value} />
+            )}
+          </div>
         </div>
       </div>
     </div>);
