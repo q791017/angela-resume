@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 
-import { Translate } from 'react-bootstrap-icons';
+import { Github, Translate } from 'react-bootstrap-icons';
 
 import backgroundImage from "@/../public/img_background.jpg";
 import avaImage from "@/../public/img_ava.png";
@@ -15,6 +15,8 @@ import awwwardsImage from "@/../public/img-awwwards.png"
 
 import Title from "@/components/Title"
 import Card from "@/components/Card";
+import Button from "@/components/Button";
+import Figma from "@/components/icon/Figma";
 
 const personalInfo = {
   name: "陳雅涵",
@@ -142,7 +144,7 @@ export default function HomePage() {
         className="fixed z-0 h-screen"
       />
       <div className="z-10 relative flex w-full flex-col py-5 sm:py-10 sm:px-20 gap-20 px-5 max-w-screen-lg mx-auto bg-white/50 shadow-customize">
-        <button onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} className="w-fit flex py-2 rounded-md justify-end items-center gap-2 text-sm text-gray-500 px-4 border border-gray-200 shadow-sm hover:bg-gray-100"><Translate />{t(`locale.${locale}`)}</button>
+        <Button onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} ><Translate />{t(`locale.${locale}`)}</Button>
         <div className="flex justify-center mb-4 items-center">
           <Image src={avaImage} alt="ava-image" className="min-w-52 max-w-60 w-full h-auto" priority />
           <div className="flex flex-col gap-2 w-1/2">
@@ -200,19 +202,25 @@ export default function HomePage() {
           <a href="https://friendship.catholic.org.tw/" className="text-gray-400 font-semibold rounded-md shadow-customize hover:shadow-hover hover:duration-400 max-w-fit mb-4">
             <Image src={webImage} alt="webImage" className="rounded-md border border-gray-200 " />
           </a>
-          {projectInfoTool.map(({ title, items }) => <div key={title} className="flex flex-col gap-2 ml-4">
-            <div className="font-semibold">{t(`project.${title}`)}</div>
-            {items.map(({ value }) => <div key={value} className="text-gray-600 ml-4">
-              {t(`project.${value}`)}
+          <div className="ml-4 flex flex-col gap-4">
+            {projectInfoTool.map(({ title, items }) => <div key={title} className="flex flex-col gap-2">
+              <div className="font-semibold">{t(`project.${title}`)}</div>
+              {items.map(({ value }) => <div key={value} className="text-gray-600 ml-4">
+                {t(`project.${value}`)}
+              </div>)}
             </div>)}
-          </div>)}
-          {projectInfoFunction.map(({ title, items }) => <div key={title} className="flex flex-col gap-4 ml-4">
-            <div className="font-semibold">{t(`project.${title}`)}</div>
-            {items.map(({ value, details }) => <div key={value} className="text-gray-600 ml-4 flex flex-col gap-2">
-              {t(`project.${value}`)}
-              {details.map(({ detail }) => <li key={detail} className="text-gray-600 ml-4">{t(`project.${detail}`)}</li>)}
+            {projectInfoFunction.map(({ title, items }) => <div key={title} className="flex flex-col gap-4">
+              <div className="font-semibold">{t(`project.${title}`)}</div>
+              {items.map(({ value, details }) => <div key={value} className="text-gray-600 ml-4 flex flex-col gap-2">
+                {t(`project.${value}`)}
+                {details.map(({ detail }) => <li key={detail} className="text-gray-600 ml-4">{t(`project.${detail}`)}</li>)}
+              </div>)}
             </div>)}
-          </div>)}
+            <div className="flex gap-5">
+              <Button buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app"><Github />GitHub</Button>
+              <Button buttonHref="https://www.figma.com/design/I3P67ED6VkdrcKT0RgTSjN/Northern-Catholic-Youth-Center?node-id=2-2&t=r8W5arXXfmrPMl2D-1"><Figma className="w-4 h-auto text-gray-500" />Figma Pages</Button>
+            </div>
+          </div>
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
           <Title title={"ui.title"} />
