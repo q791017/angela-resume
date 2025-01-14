@@ -3,7 +3,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAnalytics from "@/components/platform/GoogleAnalytics";
 
 type ParamsProps = {
   params: Promise<{ locale: Locale }>;
