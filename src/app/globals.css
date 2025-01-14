@@ -23,3 +23,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a5a5a5;
 }
+
+.nameTitleIndent {
+  @apply ml-4 sm:ml-8;
+}
+
+.contentStyle {
+  @apply flex w-full flex-col justify-center gap-6;
+}

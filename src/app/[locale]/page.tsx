@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 
-import { Github, Translate } from 'react-bootstrap-icons';
+import { Dribbble, Github, Linkedin, Translate } from 'react-bootstrap-icons';
 
 import backgroundImage from "@/../public/img_background.jpg";
 import avaImage from "@/../public/img_ava.png";
@@ -15,8 +15,9 @@ import awwwardsImage from "@/../public/img-awwwards.png"
 
 import Title from "@/components/Title"
 import Card from "@/components/Card";
-import Button from "@/components/Button";
+import RegButton from "@/components/RegButton";
 import Figma from "@/components/icon/Figma";
+import IconButton from "@/components/IconButton";
 
 const personalInfo = {
   name: "陳雅涵",
@@ -124,8 +125,6 @@ const cardItems = [
   { value: "value3", href: "https://www.awwwards.com/sites/steina", imageSrc: awwwardsImage },
 ]
 
-const contentStyle = "flex flex-col justify-center gap-6 w-full";
-
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
@@ -144,37 +143,42 @@ export default function HomePage() {
         className="fixed z-0 h-screen"
       />
       <div className="z-10 relative flex w-full flex-col py-5 sm:py-10 sm:px-20 gap-20 px-5 max-w-screen-lg mx-auto bg-white/50 shadow-customize">
-        <Button onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} ><Translate />{t(`locale.${locale}`)}</Button>
+        <RegButton onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} ><Translate />{t(`locale.${locale}`)}</RegButton>
         <div className="flex justify-center mb-4 items-center">
           <Image src={avaImage} alt="ava-image" className="min-w-52 max-w-60 w-full h-auto" priority />
-          <div className="flex flex-col gap-2 w-1/2">
-            <div className="flex flex-col sm:flex-row sm:gap-2 ml-4 sm:ml-8">
+          <div className="flex flex-col gap-3 sm:gap-4 w-1/2">
+            <div className="nameTitleIndent md:pl-0 pl-2 flex flex-col sm:flex-row sm:gap-2">
               <div className="text-2xl font-bold">{personalInfo.name}</div>
               <div className="font-bold text-lg sm:text-2xl">{personalInfo.englishName}</div>
             </div>
             <div className="border-b border-b-gray-300 w-full" />
-            <div className="flex flex-col gap-2 ml-4 sm:ml-8 text-sm leading-tight text-wrap">
+            <div className="nameTitleIndent flex flex-col gap-2 text-sm leading-tight text-wrap">
               <div>{personalInfo.email}</div>
               <div>{personalInfo.mobile}</div>
+            </div>
+            <div className="nameTitleIndent flex gap-2">
+              <IconButton buttonHref="https://github.com/q791017/angela-resume"><Github /></IconButton>
+              <IconButton buttonHref="https://dribbble.com/q791017"><Dribbble /></IconButton>
+              <IconButton buttonHref="https://www.linkedin.com/in/ya-han-chen-000339159"><Linkedin /></IconButton>
             </div>
           </div>
         </div>
         <div className="flex flex-col w-full lg:gap-16 gap-10 items-start">
-          <div className={contentStyle}>
+          <div className="contentStyle">
             <Title title={"tool.toolTitle"} />
             {tools.map(({ title, description }) => <div key={title} className="flex flex-col gap-2 ml-4">
               <div className="font-semibold text-gray-800">{t(`tool.${title}`)}</div>
               <div className="text-gray-600 ml-4">{description}</div>
             </div>)}
           </div>
-          <div className={contentStyle}>
+          <div className="contentStyle">
             <Title title={"technology.technologyTitle"} />
             {technologies.map(({ title, items }) => <div key={title} className="flex flex-col gap-2 ml-4">
               <div className="font-semibold text-gray-800">{t(`technology.${title}`)}</div>
               {items.map(({ value }) => <li key={value} className="text-gray-600 ml-4">{t(`technologyDescription.${value}`)}</li>)}
             </div>)}
           </div>
-          <div className={contentStyle}>
+          <div className="contentStyle">
             <Title title={"school.title"} />
             {school.map(({ duration, school, department }) => <div key={school} className="flex flex-col gap-2 ml-4 text-gray-600">
               <div className="text-sm">{duration}</div>
@@ -182,7 +186,7 @@ export default function HomePage() {
               <div>{t(`school.${department}`)}</div>
             </div>)}
           </div>
-          <div className={contentStyle}>
+          <div className="contentStyle">
             <Title title={"experience.title"} />
             {experience.map(({ duration, company, position, description }) => <div key={company} className="flex flex-col gap-2 ml-4 text-gray-600">
               <div className="text-sm">{duration}</div>
@@ -190,7 +194,7 @@ export default function HomePage() {
               <div>{t(`experience.${description}`)}</div>
             </div>)}
           </div>
-          <div className={contentStyle}>
+          <div className="contentStyle">
             <Title title={"english.title"} />
             <div className="flex flex-col gap-2 ml-4 text-gray-600">
               <div className="text-sm">{t("english.exam")}</div>
@@ -217,8 +221,8 @@ export default function HomePage() {
               </div>)}
             </div>)}
             <div className="flex gap-5">
-              <Button buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app"><Github />GitHub</Button>
-              <Button buttonHref="https://www.figma.com/design/I3P67ED6VkdrcKT0RgTSjN/Northern-Catholic-Youth-Center?node-id=2-2&t=r8W5arXXfmrPMl2D-1"><Figma className="w-4 h-auto text-gray-500" />Figma Pages</Button>
+              <RegButton buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app"><Github />GitHub</RegButton>
+              <RegButton buttonHref="https://www.figma.com/design/I3P67ED6VkdrcKT0RgTSjN/Northern-Catholic-Youth-Center?node-id=2-2&t=r8W5arXXfmrPMl2D-1"><Figma className="w-4 h-auto text-gray-500" />Figma Pages</RegButton>
             </div>
           </div>
         </div>
