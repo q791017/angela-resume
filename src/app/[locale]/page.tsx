@@ -175,7 +175,7 @@ export default function HomePage() {
             <Title title={"technology.technologyTitle"} />
             {technologies.map(({ title, items }) => <div key={title} className="flex flex-col gap-2 ml-4">
               <div className="font-semibold text-gray-800">{t(`technology.${title}`)}</div>
-              <ul>
+              <ul className="list-disc flex flex-col gap-2 pl-2">
                 {items.map(({ value }) => <li key={value} className="text-gray-600 ml-4">{t(`technologyDescription.${value}`)}</li>)}
               </ul>
             </div>)}
@@ -219,7 +219,7 @@ export default function HomePage() {
               <div className="font-semibold">{t(`project.${title}`)}</div>
               {items.map(({ value, details }) => <div key={value} className="text-gray-600 ml-4 flex flex-col gap-2">
                 {t(`project.${value}`)}
-                <ul>
+                <ul className="list-disc flex flex-col gap-2 pl-2">
                   {details.map(({ detail }) => <li key={detail} className="text-gray-600 ml-4">{t(`project.${detail}`)}</li>)}
                 </ul>
               </div>)}
