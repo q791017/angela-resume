@@ -32,12 +32,12 @@ const tools = [
     description: "HTML5 / CSS3 / JavaScript (ES6+) / TypeScript / React / Next.js"
   },
   {
-    title: "style",
-    description: "Tailwind CSS / Figma / PhotoShop / Illustrator"
+    title: "develop",
+    description: "Git / VS Code / Node.js / Vercel / Browser DevTools"
   },
   {
-    title: "develop",
-    description: "Git / VS Code / npm / Vercel / Chrome DevTools"
+    title: "style",
+    description: "Tailwind CSS / Figma / PhotoShop / Illustrator"
   },
 ]
 
