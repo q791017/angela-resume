@@ -143,7 +143,7 @@ export default function HomePage() {
         className="fixed z-0 h-screen"
       />
       <div className="z-10 relative flex w-full flex-col py-5 sm:py-10 sm:px-20 gap-20 px-5 max-w-screen-lg mx-auto bg-white/50 shadow-customize">
-        <RegButton onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} ><Translate />{t(`locale.${locale}`)}</RegButton>
+        <RegButton onClick={() => onClick(locale === "en-US" ? "zh-TW" : "en-US")} ariaLabel="Language Switch"><Translate />{t(`locale.${locale}`)}</RegButton>
         <div className="flex justify-center mb-4 items-center">
           <Image src={avaImage} alt="ava-image" className="min-w-52 max-w-60 w-full h-auto" priority />
           <div className="flex flex-col gap-3 sm:gap-4 w-1/2">
@@ -157,9 +157,9 @@ export default function HomePage() {
               <div>{personalInfo.mobile}</div>
             </div>
             <div className="nameTitleIndent flex gap-2">
-              <IconButton buttonHref="https://github.com/q791017/angela-resume"><Github /></IconButton>
-              <IconButton buttonHref="https://dribbble.com/q791017"><Dribbble /></IconButton>
-              <IconButton buttonHref="https://www.linkedin.com/in/ya-han-chen-000339159"><Linkedin /></IconButton>
+              <IconButton buttonHref="https://github.com/q791017/angela-resume" ariaLabel="Github Page"><Github /></IconButton>
+              <IconButton buttonHref="https://dribbble.com/q791017" ariaLabel="Dribbble Page"><Dribbble /></IconButton>
+              <IconButton buttonHref="https://www.linkedin.com/in/ya-han-chen-000339159" ariaLabel="Linkedin Page"><Linkedin /></IconButton>
             </div>
           </div>
         </div>
@@ -175,7 +175,9 @@ export default function HomePage() {
             <Title title={"technology.technologyTitle"} />
             {technologies.map(({ title, items }) => <div key={title} className="flex flex-col gap-2 ml-4">
               <div className="font-semibold text-gray-800">{t(`technology.${title}`)}</div>
-              {items.map(({ value }) => <li key={value} className="text-gray-600 ml-4">{t(`technologyDescription.${value}`)}</li>)}
+              <ul>
+                {items.map(({ value }) => <li key={value} className="text-gray-600 ml-4">{t(`technologyDescription.${value}`)}</li>)}
+              </ul>
             </div>)}
           </div>
           <div className="contentStyle">
@@ -203,7 +205,7 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
           <Title title={"project.title"} />
-          <a href="https://friendship.catholic.org.tw/" className="text-gray-400 font-semibold rounded-md shadow-customize hover:shadow-hover hover:duration-400 max-w-fit mb-4">
+          <a href="https://friendship.catholic.org.tw/" aria-label="Catholic Friendship House page" className="text-gray-400 font-semibold rounded-md shadow-customize hover:shadow-hover hover:duration-400 max-w-fit mb-4">
             <Image src={webImage} alt="webImage" className="rounded-md border border-gray-200 " />
           </a>
           <div className="ml-4 flex flex-col gap-4">
@@ -217,12 +219,14 @@ export default function HomePage() {
               <div className="font-semibold">{t(`project.${title}`)}</div>
               {items.map(({ value, details }) => <div key={value} className="text-gray-600 ml-4 flex flex-col gap-2">
                 {t(`project.${value}`)}
-                {details.map(({ detail }) => <li key={detail} className="text-gray-600 ml-4">{t(`project.${detail}`)}</li>)}
+                <ul>
+                  {details.map(({ detail }) => <li key={detail} className="text-gray-600 ml-4">{t(`project.${detail}`)}</li>)}
+                </ul>
               </div>)}
             </div>)}
             <div className="flex gap-5">
-              <RegButton buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app"><Github />GitHub</RegButton>
-              <RegButton buttonHref="https://www.figma.com/design/I3P67ED6VkdrcKT0RgTSjN/Northern-Catholic-Youth-Center?node-id=2-2&t=r8W5arXXfmrPMl2D-1"><Figma className="w-4 h-auto text-gray-500" />Figma Pages</RegButton>
+              <RegButton buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app" ariaLabel="Github Page"><Github />GitHub</RegButton>
+              <RegButton buttonHref="https://www.figma.com/design/I3P67ED6VkdrcKT0RgTSjN/Northern-Catholic-Youth-Center?node-id=2-2&t=r8W5arXXfmrPMl2D-1" ariaLabel="Figma Page"><Figma className="w-4 h-auto text-gray-500" />Figma Pages</RegButton>
             </div>
           </div>
         </div>
