@@ -21,8 +21,8 @@
   },
   "technologyDescription": {
     "develop1": "使用 React 與 Next.js 框架，有多語系網站建置（i18n）與實現前端功能經驗。",
-    "develop2": "使用 Tailwind CSS 實現響應式設計（RWD）與切版，並掌握 HTML5/CSS3 基礎技能。",
-    "develop3": "API 調用與 CRUD 操作，有處理動態資訊與多層級結構資料的經驗。",
+    "develop2": "使用 Tailwind CSS 實現響應式設計（RWD）與切版，具備 HTML5/CSS3 基礎技能。",
+    "develop3": "RESTful API 調用與 CRUD 操作，有處理動態資訊與多層級結構資料的經驗。",
     "test1": "使用 Git 版本控制，能有效支援專案管理與開發任務。",
     "test2": "熟悉 Vercel 部署流程，並能配置 DNS（A Record）進行自訂域名綁定。",
     "test3": "使用 SonarLint進行品質檢查，提供程式安全性與效能。",

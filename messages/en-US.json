@@ -21,8 +21,8 @@
   },
   "technologyDescription": {
     "develop1": "Experienced in building multilingual websites (i18n) and implementing frontend features using React and Next.js frameworks.",
-    "develop2": "Implemented responsive designs (RWD) and layouts with Tailwind CSS, and mastered basic HTML5/CSS3 skills.",
-    "develop3": "Capable of API integration and CRUD operations, handling dynamic information and multi-level structured data.",
+    "develop2": "Implemented responsive designs (RWD) and layouts with Tailwind CSS, and basic HTML5/CSS3 skills.",
+    "develop3": "Capable of RESTful API integration and CRUD operations, handling dynamic information and multi-level structured data.",
     "test1": "Proficient in Git version control for effective project management and development tasks.",
     "test2": "Familiar with Vercel deployment processes and DNS configuration (A Record) for custom domain binding.",
     "test3": "Performed code quality checks using SonarLint to ensure security and performance.",
