@@ -1,13 +1,14 @@
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
-import GoogleAnalytics from "@/components/platform/GoogleAnalytics";
+import GoogleAnalytics from '@/components/platform/GoogleAnalytics';
+
+import { routing } from '@/i18n/routing';
 
 type ParamsProps = {
   params: Promise<{ locale: Locale }>;
-}
+};
 type LocaleLayoutProps = RootProvider & ParamsProps;
 
 export async function generateStaticParams() {
@@ -19,15 +20,12 @@ export async function generateMetadata({ params }: ParamsProps) {
   const t = await getTranslations({ locale });
 
   return {
-    title: t("metadata.title"),
-    description: t("metadata.description"),
+    title: t('metadata.title'),
+    description: t('metadata.description'),
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: Readonly<LocaleLayoutProps>) {
+export default async function LocaleLayout({ children, params }: Readonly<LocaleLayoutProps>) {
   const { locale } = await params;
 
   if (!routing.locales.includes(locale)) {
@@ -40,9 +38,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <GoogleAnalytics />
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
