@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "pretty": "prettier --write \"src/**/*.js/*.ts/*.tsx/*.mjx/*.json/*.css/*.scss\""
   },
   "dependencies": {
+    "@sentry/nextjs": "^8.51.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.0",
     "bootstrap-icons": "^1.11.3",
     "next": "15.1.3",
