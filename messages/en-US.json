@@ -7,19 +7,28 @@
     "title": "Angela's resume",
     "description": "Introduction to Angela's resume."
   },
-  "tool": {
-    "toolTitle": "Tools Used",
-    "language": "Languages and Frameworks",
-    "style": "Styling and Design Tools",
-    "develop": "Development Tools"
+  "ui": {
+    "uiTitle": "UI / UX Design",
+    "designSoftware": "Graphic Design Software",
+    "engineeringSoftware": "3D Engineering & Rendering Software",
+    "features": "Design Features"
   },
-  "technology": {
-    "technologyTitle": "Technical Skills",
+  "uiFeatures": {
+    "feature1": "Use Figma to create UI designs and work closely with teams to make the user experience better.",
+    "feature2": "Focus on responsive design (RWD) to ensure the website looks great on all devices.",
+    "feature3": "Have frontend development skills, making it easier to communicate with developers and improve workflow.",
+    "feature4": "Familiar with UI frameworks like Ant Design and can adjust designs to fit the existing system, making development smoother.",
+    "feature5": "Skilled in vector illustration, adding unique and eye-catching visuals to websites."
+  },
+  "frontEnd": {
+    "frontEndTitle": "Frontend Development Skills",
+    "language": "Languages and Frameworks",
+    "developTool": "Development Tools",
     "develop": "Development Skills",
     "test": "Deployment and Testing",
     "design": "Design and Collaboration"
   },
-  "technologyDescription": {
+  "frontEndDescription": {
     "develop1": "Experienced in building multilingual websites (i18n) and implementing frontend features using React and Next.js frameworks.",
     "develop2": "Implemented responsive designs (RWD) and layouts with Tailwind CSS, and basic HTML5/CSS3 skills.",
     "develop3": "Capable of RESTful API integration and CRUD operations, handling dynamic information and multi-level structured data.",
@@ -68,7 +77,7 @@
     "manageDetail2": "Manage account permissions and registration results.",
     "manageDetail3": "Export registration data - Excel files."
   },
-  "ui": {
+  "uiAttachment": {
     "title": "Web Design",
     "value1": "Daily UI - 30 Days Challenge",
     "value2": "Figma Demo",

@@ -7,19 +7,28 @@
     "title": "雅涵的履歷",
     "description": "關於雅涵的履歷介紹"
   },
-  "tool": {
-    "toolTitle": "使用工具",
-    "language": "語言與框架",
-    "style": "樣式與設計工具",
-    "develop": "開發工具"
+  "ui": {
+    "uiTitle": "UI / UX 設計",
+    "designSoftware": "平面軟體",
+    "engineeringSoftware": "3D工程及渲染軟體",
+    "features": "設計特色"
   },
-  "technology": {
-    "technologyTitle": "工作技能",
+  "uiFeatures": {
+    "feature1": "使用 Figma 設計 UI，並與相關單位討論需求，使User Experience最佳化。",
+    "feature2": "重視響應式設計(RWD)使用效果，設計符合不同平台需求的網頁。",
+    "feature3": "具備前端能力，能更貼近前端需求提供實際的作法提案，以增進專案效率。",
+    "feature4": "使用過UI framework經驗(Ant Design)，可依據現有架構調整UI便於工程師使用。",
+    "feature5": "善於繪製向量插畫，展現網頁特色。"
+  },
+  "frontEnd": {
+    "frontEndTitle": "前端技能",
+    "language": "語言與框架",
+    "developTool": "開發工具",
     "develop": "開發技能",
     "test": "部署與測試",
     "design": "設計與協作"
   },
-  "technologyDescription": {
+  "frontEndDescription": {
     "develop1": "使用 React 與 Next.js 框架，有多語系網站建置（i18n）與實現前端功能經驗。",
     "develop2": "使用 Tailwind CSS 實現響應式設計（RWD）與切版，具備 HTML5/CSS3 基礎技能。",
     "develop3": "RESTful API 調用與 CRUD 操作，有處理動態資訊與多層級結構資料的經驗。",
@@ -68,7 +77,7 @@
     "manageDetail2": "管理帳號權限與報名結果。",
     "manageDetail3": "匯出報名資料 - Excel 檔案。"
   },
-  "ui": {
+  "uiAttachment": {
     "title": "網頁設計",
     "value1": "Daily UI - 30天挑戰",
     "value2": "Figma Demo",

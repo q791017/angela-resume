@@ -25,7 +25,31 @@ const personalInfo = {
   mobile: '0933-212-492',
 };
 
-const tools = [
+const uiTools = [
+  {
+    title: 'designSoftware',
+    description: 'Figma / Photoshop / Illustrator / CoreDraw',
+  },
+  {
+    title: 'engineeringSoftware',
+    description: 'ProE(Creo) / SolidWorks / KeyShot',
+  },
+];
+
+const ui = [
+  {
+    title: 'features',
+    items: [
+      { value: 'feature1' },
+      { value: 'feature2' },
+      { value: 'feature3' },
+      { value: 'feature4' },
+      { value: 'feature5' },
+    ],
+  },
+];
+
+const frontEndTools = [
   {
     title: 'language',
     description: 'HTML5 / CSS3 / JavaScript (ES6+) / TypeScript / React / Next.js',
@@ -34,13 +58,9 @@ const tools = [
     title: 'develop',
     description: 'Git / VS Code / Node.js / Vercel / Browser DevTools',
   },
-  {
-    title: 'style',
-    description: 'Tailwind CSS / Figma / PhotoShop / Illustrator',
-  },
 ];
 
-const technologies = [
+const frontEnd = [
   {
     title: 'develop',
     items: [{ value: 'develop1' }, { value: 'develop2' }, { value: 'develop3' }],
@@ -183,23 +203,20 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col w-full lg:gap-16 gap-10 items-start">
           <div className="contentStyle">
-            <Title title={'tool.toolTitle'} />
-            {tools.map(({ title, description }) => (
+            <Title title={'ui.uiTitle'} />
+            {uiTools.map(({ title, description }) => (
               <div key={title} className="flex flex-col gap-2 ml-4">
-                <div className="font-semibold text-gray-800">{t(`tool.${title}`)}</div>
+                <div className="font-semibold text-gray-800">{t(`ui.${title}`)}</div>
                 <div className="text-gray-600 ml-4">{description}</div>
               </div>
             ))}
-          </div>
-          <div className="contentStyle">
-            <Title title={'technology.technologyTitle'} />
-            {technologies.map(({ title, items }) => (
+            {ui.map(({ title, items }) => (
               <div key={title} className="flex flex-col gap-2 ml-4">
-                <div className="font-semibold text-gray-800">{t(`technology.${title}`)}</div>
+                <div className="font-semibold text-gray-800">{t(`ui.${title}`)}</div>
                 <ul className="list-disc flex flex-col gap-2 pl-2">
                   {items.map(({ value }) => (
                     <li key={value} className="text-gray-600 ml-4">
-                      {t(`technologyDescription.${value}`)}
+                      {t(`uiFeatures.${value}`)}
                     </li>
                   ))}
                 </ul>
@@ -207,12 +224,23 @@ export default function HomePage() {
             ))}
           </div>
           <div className="contentStyle">
-            <Title title={'school.title'} />
-            {school.map(({ duration, school, department }) => (
-              <div key={school} className="flex flex-col gap-2 ml-4 text-gray-600">
-                <div className="text-sm">{duration}</div>
-                <div className="font-semibold text-gray-800">{t(`school.${school}`)}</div>
-                <div>{t(`school.${department}`)}</div>
+            <Title title={'frontEnd.frontEndTitle'} />
+            {frontEndTools.map(({ title, description }) => (
+              <div key={title} className="flex flex-col gap-2 ml-4">
+                <div className="font-semibold text-gray-800">{t(`frontEnd.${title}`)}</div>
+                <div className="text-gray-600 ml-4">{description}</div>
+              </div>
+            ))}
+            {frontEnd.map(({ title, items }) => (
+              <div key={title} className="flex flex-col gap-2 ml-4">
+                <div className="font-semibold text-gray-800">{t(`frontEnd.${title}`)}</div>
+                <ul className="list-disc flex flex-col gap-2 pl-2">
+                  {items.map(({ value }) => (
+                    <li key={value} className="text-gray-600 ml-4">
+                      {t(`frontEndDescription.${value}`)}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -225,6 +253,16 @@ export default function HomePage() {
                   {t(`experience.${company}`)} - {t(`experience.${position}`)}
                 </div>
                 <div>{t(`experience.${description}`)}</div>
+              </div>
+            ))}
+          </div>
+          <div className="contentStyle">
+            <Title title={'school.title'} />
+            {school.map(({ duration, school, department }) => (
+              <div key={school} className="flex flex-col gap-2 ml-4 text-gray-600">
+                <div className="text-sm">{duration}</div>
+                <div className="font-semibold text-gray-800">{t(`school.${school}`)}</div>
+                <div>{t(`school.${department}`)}</div>
               </div>
             ))}
           </div>
@@ -291,7 +329,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex flex-col justify-center items-start gap-6 mx-auto w-full">
-          <Title title={'ui.title'} />
+          <Title title={'uiAttachment.title'} />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {cardItems.map(({ href, imageSrc, value }) => (
               <Card key={value} href={href} imageSrc={imageSrc} cardValue={value} />
