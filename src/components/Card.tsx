@@ -14,6 +14,7 @@ function Card({ href, imageSrc, cardValue }: Readonly<CardProps>) {
   return (
     <a
       href={href}
+      target="_blank"
       className="bg-white rounded-md flex flex-col items-center overflow-hidden border border-gray-200 shadow-customize hover:duration-400 hover:shadow-hover"
     >
       <Image src={imageSrc} alt="UI-image" className="min-h-40 w-full shadow-md" />
