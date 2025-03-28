@@ -19,7 +19,7 @@ function ControlButton({
     <button
       aria-label={ariaLabel}
       onClick={onClick}
-      className={`group w-fit cursor-pointer flex gap-2 items-center py-2 px-2 text-sm text-gray-500 border border-gray-200 rounded-md bg-gray-50 hover:bg-white hover:shadow-sm active:text-gray-700 ${className}`}
+      className={`group w-fit h-9 cursor-pointer flex gap-2 items-center py-2 px-2 text-sm text-gray-500 border border-gray-200 rounded-md bg-gray-50/90 shadow-md hover:bg-white hover:shadow-sm active:text-gray-700 ${className}`}
     >
       {icon}
       {buttonText && (
