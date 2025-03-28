@@ -4,22 +4,21 @@ import { useTranslations } from 'next-intl';
 import Image, { StaticImageData } from 'next/image';
 
 type CardProps = {
-  href: string;
   imageSrc: StaticImageData;
   cardValue: string;
+  onClick?: () => void;
 };
 
-function Card({ href, imageSrc, cardValue }: Readonly<CardProps>) {
+function Card({ imageSrc, cardValue, onClick }: Readonly<CardProps>) {
   const t = useTranslations();
   return (
-    <a
-      href={href}
-      target="_blank"
+    <button
       className="bg-white rounded-md flex flex-col items-center overflow-hidden border border-gray-200 shadow-customize hover:duration-400 hover:shadow-hover"
+      onClick={onClick}
     >
       <Image src={imageSrc} alt="UI-image" className="min-h-40 w-full shadow-md" />
       <p className="p-2">{t(`uiAttachment.${cardValue}`)}</p>
-    </a>
+    </button>
   );
 }
 
