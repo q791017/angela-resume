@@ -17,6 +17,7 @@ import {
 import Card from '@/components/Card';
 import ControlButton from '@/components/ControlButton';
 import IconButton from '@/components/IconButton';
+import Modal from '@/components/Modal';
 import RegButton from '@/components/RegButton';
 import Title from '@/components/Title';
 import Figma from '@/components/icon/Figma';
@@ -161,6 +162,7 @@ export default function HomePage() {
 
   const [isTop, setIsTop] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const topRef = useRef<HTMLDivElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
@@ -186,7 +188,6 @@ export default function HomePage() {
             currentIndex.current = i;
             setIsTop(i === 0);
             setIsBottom(i === sections.length - 1 || scrollY + windowHeight >= pageHeight - 50);
-            console.log(i);
             break;
           }
         }
@@ -214,7 +215,6 @@ export default function HomePage() {
         block: 'start',
       });
     }
-    console.log(isBottom);
   };
 
   const scrollTop = () => {
@@ -222,7 +222,6 @@ export default function HomePage() {
       behavior: 'smooth',
       block: 'start',
     });
-    console.log(isBottom);
   };
 
   const translateOnClick = (key: string) => {
@@ -233,7 +232,7 @@ export default function HomePage() {
     <div className="w-full min-h-screen relative">
       <Image src={backgroundImage} alt="background-image" className="fixed z-0 h-screen" />
       <div className="z-10 relative flex w-full justify-between">
-        <div className="fixed px-4 py-4 h-screen flex flex-col justify-end gap-10">
+        <div className="fixed p-5 h-screen flex flex-col justify-end gap-10">
           <div className="flex flex-col gap-6">
             <ControlButton
               ariaLabel="to previous item"
@@ -445,13 +444,24 @@ export default function HomePage() {
               <Title title={'uiAttachment.title'} />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {cardItems.map(({ imageSrc, value }) => (
-                  <Card key={value} imageSrc={imageSrc} cardValue={value} />
+                  <Card
+                    key={value}
+                    imageSrc={imageSrc}
+                    cardValue={value}
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      console.log(isModalOpen);
+                    }}
+                  />
                 ))}
               </div>
             </div>
           </section>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className="text-3xl font-bold">test</div>
+      </Modal>
     </div>
   );
 }
