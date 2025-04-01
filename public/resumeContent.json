@@ -1,0 +1,112 @@
+{
+  "personalInfo": {
+    "name": "陳雅涵",
+    "englishName": "ANGELA",
+    "email": "q791017@gmail.com",
+    "mobile": "0933-212-492"
+  },
+  "uiTools": [
+    {
+      "title": "designSoftware",
+      "description": "Figma / Photoshop / Illustrator / CoreDraw"
+    },
+    {
+      "title": "engineeringSoftware",
+      "description": "ProE(Creo) / SolidWorks / KeyShot"
+    }
+  ],
+  "ui": [
+    {
+      "title": "features",
+      "items": [
+        { "value": "feature1" },
+        { "value": "feature2" },
+        { "value": "feature3" },
+        { "value": "feature4" },
+        { "value": "feature5" }
+      ]
+    }
+  ],
+  "frontEndTools": [
+    {
+      "title": "language",
+      "description": "HTML5 / CSS3 / JavaScript (ES6+) / TypeScript / React / Next.js"
+    },
+    {
+      "title": "develop",
+      "description": "Git / VS Code / Node.js / Vercel / Browser DevTools"
+    }
+  ],
+  "frontEnd": [
+    {
+      "title": "develop",
+      "items": [{ "value": "develop1" }, { "value": "develop2" }, { "value": "develop3" }]
+    },
+    {
+      "title": "test",
+      "items": [{ "value": "test1" }, { "value": "test2" }, { "value": "test3" }]
+    },
+    {
+      "title": "design",
+      "items": [{ "value": "design1" }, { "value": "design2" }]
+    }
+  ],
+  "school": [
+    {
+      "title": "title",
+      "duration": "2009 - 2013",
+      "school": "school",
+      "department": "department"
+    }
+  ],
+  "experience": [
+    {
+      "duration": "Aug 2018 - Jun 2023",
+      "company": "company1",
+      "position": "position1",
+      "description": "description1"
+    },
+    {
+      "duration": "Jul 2013 - Jul 2017",
+      "company": "company2",
+      "position": "position2",
+      "description": "description2"
+    }
+  ],
+  "projectInfoTool": [
+    {
+      "title": "toolTitle",
+      "items": [
+        { "value": "design" },
+        { "value": "frameWork" },
+        { "value": "style" },
+        { "value": "storage" },
+        { "value": "auth" },
+        { "value": "deploy" },
+        { "value": "intl" },
+        { "value": "listener" },
+        { "value": "dns" },
+        { "value": "quality" }
+      ]
+    }
+  ],
+  "projectInfoFunction": [
+    {
+      "title": "functionTitle",
+      "items": [
+        {
+          "value": "user",
+          "details": [{ "detail": "userDetail" }]
+        },
+        {
+          "value": "manage",
+          "details": [
+            { "detail": "manageDetail1" },
+            { "detail": "manageDetail2" },
+            { "detail": "manageDetail3" }
+          ]
+        }
+      ]
+    }
+  ]
+}

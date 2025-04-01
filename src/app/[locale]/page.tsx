@@ -26,122 +26,6 @@ import avaImage from '@/../public/images/img_ava.png';
 import backgroundImage from '@/../public/images/img_background.jpg';
 import { usePathname, useRouter } from '@/i18n/routing';
 
-const personalInfo = {
-  name: '陳雅涵',
-  englishName: 'ANGELA',
-  email: 'q791017@gmail.com',
-  mobile: '0933-212-492',
-};
-
-const uiTools = [
-  {
-    title: 'designSoftware',
-    description: 'Figma / Photoshop / Illustrator / CoreDraw',
-  },
-  {
-    title: 'engineeringSoftware',
-    description: 'ProE(Creo) / SolidWorks / KeyShot',
-  },
-];
-
-const ui = [
-  {
-    title: 'features',
-    items: [
-      { value: 'feature1' },
-      { value: 'feature2' },
-      { value: 'feature3' },
-      { value: 'feature4' },
-      { value: 'feature5' },
-    ],
-  },
-];
-
-const frontEndTools = [
-  {
-    title: 'language',
-    description: 'HTML5 / CSS3 / JavaScript (ES6+) / TypeScript / React / Next.js',
-  },
-  {
-    title: 'develop',
-    description: 'Git / VS Code / Node.js / Vercel / Browser DevTools',
-  },
-];
-
-const frontEnd = [
-  {
-    title: 'develop',
-    items: [{ value: 'develop1' }, { value: 'develop2' }, { value: 'develop3' }],
-  },
-  {
-    title: 'test',
-    items: [{ value: 'test1' }, { value: 'test2' }, { value: 'test3' }],
-  },
-  {
-    title: 'design',
-    items: [{ value: 'design1' }, { value: 'design2' }],
-  },
-];
-
-const school = [
-  {
-    title: 'title',
-    duration: '2009 - 2013',
-    school: 'school',
-    department: 'department',
-  },
-];
-
-const experience = [
-  {
-    duration: 'Aug 2018 - Jun 2023',
-    company: 'company1',
-    position: 'position1',
-    description: 'description1',
-  },
-  {
-    duration: 'Jul 2013 - Jul 2017',
-    company: 'company2',
-    position: 'position2',
-    description: 'description2',
-  },
-];
-
-const projectInfoTool = [
-  {
-    title: 'toolTitle',
-    items: [
-      { value: 'design' },
-      { value: 'frameWork' },
-      { value: 'style' },
-      { value: 'storage' },
-      { value: 'auth' },
-      { value: 'deploy' },
-      { value: 'intl' },
-      { value: 'listener' },
-      { value: 'dns' },
-      { value: 'quality' },
-    ],
-  },
-];
-
-const projectInfoFunction = [
-  {
-    title: 'functionTitle',
-    items: [
-      { value: 'user', details: [{ detail: 'userDetail' }] },
-      {
-        value: 'manage',
-        details: [
-          { detail: 'manageDetail1' },
-          { detail: 'manageDetail2' },
-          { detail: 'manageDetail3' },
-        ],
-      },
-    ],
-  },
-];
-
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
@@ -150,6 +34,8 @@ export default function HomePage() {
 
   const [isTop, setIsTop] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const [resumeData, setResumeData] = useState<ResumeDataProps | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const topRef = useRef<HTMLDivElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
@@ -160,6 +46,25 @@ export default function HomePage() {
   const sections = useMemo(() => [topRef, summaryRef, experienceRef, developRef, uiRef], []);
 
   const currentIndex = useRef(0);
+
+  useEffect(() => {
+    const loadContentData = async () => {
+      try {
+        const response = await fetch('/resumeContent.json');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch resumeContent.json with status:${response.status}`);
+        }
+        const resumeData = await response.json();
+        setResumeData(resumeData);
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+        setError(errorMessage);
+        console.error('Error loading resume data:', err);
+      }
+    };
+
+    loadContentData();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -183,6 +88,14 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sections]);
+
+  if (error) {
+    return <div className="text-red-500 p-8">錯誤：{error}</div>;
+  }
+
+  if (!resumeData) {
+    return <div className="p-8">載入中...</div>;
+  }
 
   const scrollUp = () => {
     if (currentIndex.current > 0) {
@@ -257,13 +170,15 @@ export default function HomePage() {
             />
             <div className="flex flex-col gap-3 sm:gap-4 w-1/2">
               <div className="nameTitleIndent md:pl-0 pl-2 flex flex-col sm:flex-row sm:gap-2">
-                <div className="text-2xl font-bold">{personalInfo.name}</div>
-                <div className="font-bold text-lg sm:text-2xl">{personalInfo.englishName}</div>
+                <div className="text-2xl font-bold">{resumeData.personalInfo.name}</div>
+                <div className="font-bold text-lg sm:text-2xl">
+                  {resumeData.personalInfo.englishName}
+                </div>
               </div>
               <div className="border-b border-b-gray-300 w-full" />
               <div className="nameTitleIndent flex flex-col gap-2 text-sm leading-tight text-wrap">
-                <div>{personalInfo.email}</div>
-                <div>{personalInfo.mobile}</div>
+                <div>{resumeData.personalInfo.email}</div>
+                <div>{resumeData.personalInfo.mobile}</div>
               </div>
               <div className="nameTitleIndent flex gap-2">
                 <IconButton
@@ -287,13 +202,13 @@ export default function HomePage() {
           <section className="flex flex-col w-full lg:gap-16 gap-10 items-start">
             <div className="contentStyle" ref={summaryRef}>
               <Title title={'ui.uiTitle'} />
-              {uiTools.map(({ title, description }) => (
+              {resumeData.uiTools.map(({ title, description }) => (
                 <div key={title} className="flex flex-col gap-2 ml-4">
                   <div className="font-semibold text-gray-800">{t(`ui.${title}`)}</div>
                   <div className="text-gray-600 ml-4">{description}</div>
                 </div>
               ))}
-              {ui.map(({ title, items }) => (
+              {resumeData.ui.map(({ title, items }) => (
                 <div key={title} className="flex flex-col gap-2 ml-4">
                   <div className="font-semibold text-gray-800">{t(`ui.${title}`)}</div>
                   <ul className="list-disc flex flex-col gap-2 pl-2">
@@ -308,13 +223,13 @@ export default function HomePage() {
             </div>
             <div className="contentStyle">
               <Title title={'frontEnd.frontEndTitle'} />
-              {frontEndTools.map(({ title, description }) => (
+              {resumeData.frontEndTools.map(({ title, description }) => (
                 <div key={title} className="flex flex-col gap-2 ml-4">
                   <div className="font-semibold text-gray-800">{t(`frontEnd.${title}`)}</div>
                   <div className="text-gray-600 ml-4">{description}</div>
                 </div>
               ))}
-              {frontEnd.map(({ title, items }) => (
+              {resumeData.frontEnd.map(({ title, items }) => (
                 <div key={title} className="flex flex-col gap-2 ml-4">
                   <div className="font-semibold text-gray-800">{t(`frontEnd.${title}`)}</div>
                   <ul className="list-disc flex flex-col gap-2 pl-2">
@@ -329,7 +244,7 @@ export default function HomePage() {
             </div>
             <div className="contentStyle" ref={experienceRef}>
               <Title title={'experience.title'} />
-              {experience.map(({ duration, company, position, description }) => (
+              {resumeData.experience.map(({ duration, company, position, description }) => (
                 <div key={company} className="flex flex-col gap-2 ml-4 text-gray-600">
                   <div className="text-sm">{duration}</div>
                   <div className="font-semibold text-gray-800">
@@ -341,7 +256,7 @@ export default function HomePage() {
             </div>
             <div className="contentStyle">
               <Title title={'school.title'} />
-              {school.map(({ duration, school, department }) => (
+              {resumeData.school.map(({ duration, school, department }) => (
                 <div key={school} className="flex flex-col gap-2 ml-4 text-gray-600">
                   <div className="text-sm">{duration}</div>
                   <div className="font-semibold text-gray-800">{t(`school.${school}`)}</div>
@@ -372,7 +287,7 @@ export default function HomePage() {
                 />
               </a>
               <div className="ml-4 flex flex-col gap-4">
-                {projectInfoTool.map(({ title, items }) => (
+                {resumeData.projectInfoTool.map(({ title, items }) => (
                   <div key={title} className="flex flex-col gap-2">
                     <div className="font-semibold">{t(`project.${title}`)}</div>
                     {items.map(({ value }) => (
@@ -382,7 +297,7 @@ export default function HomePage() {
                     ))}
                   </div>
                 ))}
-                {projectInfoFunction.map(({ title, items }) => (
+                {resumeData.projectInfoFunction.map(({ title, items }) => (
                   <div key={title} className="flex flex-col gap-4">
                     <div className="font-semibold">{t(`project.${title}`)}</div>
                     {items.map(({ value, details }) => (
