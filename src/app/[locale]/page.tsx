@@ -169,19 +169,22 @@ export default function HomePage() {
               ariaLabel="to previous item"
               icon={<ChevronUp />}
               onClick={scrollUp}
-              className={isTop ? 'opacity-0 cursor-not-allowed' : ''}
-            />
-            <ControlButton
-              ariaLabel="to next item"
-              icon={<ChevronDown />}
-              onClick={scrollDown}
-              className={isBottom ? 'hidden' : ''}
+              className={[
+                isTop ? 'opacity-40 !cursor-not-allowed' : '',
+                isBottom ? 'hidden' : '',
+              ].join('')}
             />
             <ControlButton
               ariaLabel="to top"
               icon={<ChevronBarUp />}
               onClick={scrollTop}
               className={isBottom ? 'flex' : 'hidden'}
+            />
+            <ControlButton
+              ariaLabel="to next item"
+              icon={<ChevronDown />}
+              onClick={scrollDown}
+              className={isBottom ? 'opacity-40 !cursor-not-allowed' : ''}
             />
           </div>
           <ControlButton
