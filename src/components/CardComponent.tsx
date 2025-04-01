@@ -64,6 +64,7 @@ function CardComponent() {
                       height={300}
                       controls
                       className="rounded-md min-w-full"
+                      muted
                     />
                   ) : (
                     <Image
