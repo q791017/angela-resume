@@ -79,9 +79,9 @@
   },
   "uiAttachment": {
     "title": "網頁設計",
-    "value1": "Daily UI - 30天挑戰",
-    "value2": "舊版教友中心網站",
-    "value3": "新版教友中心網站",
-    "value4": "Awwwards - Honorable Mention"
+    "cardDaily": "Daily UI - 30天挑戰",
+    "cardFsOld": "舊版教友中心網站",
+    "cardFsNew": "新版教友中心網站",
+    "cardSaws": "婚禮網站 - Pixel繪圖"
   }
 }

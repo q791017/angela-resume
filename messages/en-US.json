@@ -79,9 +79,9 @@
   },
   "uiAttachment": {
     "title": "Web Design",
-    "value1": "Daily UI - 30 Days Challenge",
-    "value2": "Previous Friendship Website design",
-    "value3": "Latest Friendship Website design",
-    "value4": "Awwwards - Honorable Mention"
+    "cardDaily": "Daily UI - 30 Days Challenge",
+    "cardFsOld": "Previous Friendship Website design",
+    "cardFsNew": "Latest Friendship Website design",
+    "cardSaws": "Wedding Site - Pixel Illustration"
   }
 }

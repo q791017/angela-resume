@@ -14,21 +14,16 @@ import {
   Translate,
 } from 'react-bootstrap-icons';
 
-import Card from '@/components/Card';
+import CardComponent from '@/components/CardComponent';
 import ControlButton from '@/components/ControlButton';
 import IconButton from '@/components/IconButton';
-import Modal from '@/components/Modal';
 import RegButton from '@/components/RegButton';
 import Title from '@/components/Title';
 import Figma from '@/components/icon/Figma';
 
-import fsNewImage from '@/../public/img-FS-new.png';
-import fsOldImage from '@/../public/img-FS-old.png';
-import awwwardsImage from '@/../public/img-awwwards.png';
-import dailyUiImage from '@/../public/img-dailyUi.png';
-import webImage from '@/../public/img-index.png';
-import avaImage from '@/../public/img_ava.png';
-import backgroundImage from '@/../public/img_background.jpg';
+import webImage from '@/../public/images/img-fsNew-thumb.png';
+import avaImage from '@/../public/images/img_ava.png';
+import backgroundImage from '@/../public/images/img_background.jpg';
 import { usePathname, useRouter } from '@/i18n/routing';
 
 const personalInfo = {
@@ -147,13 +142,6 @@ const projectInfoFunction = [
   },
 ];
 
-const cardItems = [
-  { value: 'value1', imageSrc: dailyUiImage },
-  { value: 'value2', imageSrc: fsOldImage },
-  { value: 'value3', imageSrc: fsNewImage },
-  { value: 'value4', imageSrc: awwwardsImage },
-];
-
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
@@ -162,7 +150,6 @@ export default function HomePage() {
 
   const [isTop, setIsTop] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const topRef = useRef<HTMLDivElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
@@ -442,26 +429,11 @@ export default function HomePage() {
               ref={uiRef}
             >
               <Title title={'uiAttachment.title'} />
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {cardItems.map(({ imageSrc, value }) => (
-                  <Card
-                    key={value}
-                    imageSrc={imageSrc}
-                    cardValue={value}
-                    onClick={() => {
-                      setIsModalOpen(true);
-                      console.log(isModalOpen);
-                    }}
-                  />
-                ))}
-              </div>
+              <CardComponent />
             </div>
           </section>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="text-3xl font-bold">test</div>
-      </Modal>
     </div>
   );
 }
