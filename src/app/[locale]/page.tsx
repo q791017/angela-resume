@@ -20,6 +20,7 @@ import IconButton from '@/components/IconButton';
 import RegButton from '@/components/RegButton';
 import Title from '@/components/Title';
 import Figma from '@/components/icon/Figma';
+import { Progress } from '@/components/ui/progress';
 
 import webImage from '@/../public/images/img-fsNew-thumb.png';
 import avaImage from '@/../public/images/img_ava.png';
@@ -34,6 +35,7 @@ export default function HomePage() {
 
   const [isTop, setIsTop] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const [resumeLoading, setResumeLoading] = useState(0);
   const [resumeData, setResumeData] = useState<ResumeDataProps | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,22 +49,31 @@ export default function HomePage() {
 
   const currentIndex = useRef(0);
 
-  useEffect(() => {
-    const loadContentData = async () => {
-      try {
-        const response = await fetch('/resumeContent.json');
-        if (!response.ok) {
-          throw new Error(`Failed to fetch resumeContent.json with status:${response.status}`);
-        }
-        const resumeData = await response.json();
-        setResumeData(resumeData);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
-        setError(errorMessage);
-        console.error('Error loading resume data:', err);
-      }
-    };
+  const loadContentData = async () => {
+    try {
+      setResumeLoading(10);
+      const interval = setInterval(() => {
+        setResumeLoading((prev) => Math.min(prev + 10, 80));
+      }, 200);
 
+      const response = await fetch('/resumeContent.json');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch resumeContent.json with status:${response.status}`);
+      }
+      const resumeData = await response.json();
+
+      clearInterval(interval);
+      setResumeLoading(100);
+      setResumeData(resumeData);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      setError(errorMessage);
+      console.error('Error loading resume data:', err);
+      setResumeLoading(0);
+    }
+  };
+
+  useEffect(() => {
     loadContentData();
   }, []);
 
@@ -90,11 +101,31 @@ export default function HomePage() {
   }, [sections]);
 
   if (error) {
-    return <div className="text-red-500 p-8">錯誤：{error}</div>;
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center">
+        <div className="font-bold p-8">
+          {t('refresh.error')}: {error}
+        </div>
+        <RegButton
+          onClick={() => {
+            setError(null);
+            loadContentData();
+          }}
+          ariaLabel="refresh"
+        >
+          {t('refresh.refresh')}
+        </RegButton>
+      </div>
+    );
   }
 
   if (!resumeData) {
-    return <div className="p-8">載入中...</div>;
+    return (
+      <div className="w-full h-screen flex flex-col items-center justify-center gap-4">
+        <div className="font-bold p-8 text-gray-800">{t('refresh.loading')}</div>
+        <Progress value={resumeLoading} className="w-[20%]" />
+      </div>
+    );
   }
 
   const scrollUp = () => {
