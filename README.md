@@ -1,4 +1,4 @@
-[![image](https://github.com/q791017/angela-resume/blob/develop/public/img-logo-yh.png)](https://angela-resume.vercel.app)
+[![image](https://github.com/q791017/angela-resume/blob/develop/public/images/img-logo-yh.png)](https://angela-resume.vercel.app)
 
 # Angela's Resume
 
