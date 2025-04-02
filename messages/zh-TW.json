@@ -12,6 +12,13 @@
     "title": "雅涵的履歷",
     "description": "關於雅涵的履歷介紹"
   },
+  "section": {
+    "top": "個人資訊",
+    "summary": "技能簡介",
+    "experience": "工作經驗",
+    "project": "設計與開發",
+    "ui": "設計作品"
+  },
   "ui": {
     "uiTitle": "UI / UX 設計",
     "designSoftware": "平面軟體",
@@ -62,7 +69,7 @@
     "exam": "多益測驗 720"
   },
   "project": {
-    "title": "網站設計開發",
+    "title": "設計與開發",
     "toolTitle": "開發工具與框架",
     "design": "設計工具：Figma",
     "frameWork": "前端框架：Next.js、React、TypeScript",
@@ -83,7 +90,7 @@
     "manageDetail3": "匯出報名資料 - Excel 檔案。"
   },
   "uiAttachment": {
-    "title": "網頁設計",
+    "title": "設計作品",
     "cardDaily": "Daily UI - 30天挑戰",
     "cardFsOld": "舊版教友中心網站",
     "cardFsNew": "新版教友中心網站",

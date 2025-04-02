@@ -12,6 +12,13 @@
     "title": "Angela's resume",
     "description": "Introduction to Angela's resume."
   },
+  "section": {
+    "top": "Information",
+    "summary": "Summary",
+    "experience": "Experience",
+    "project": "Design & Develop",
+    "ui": "Design artwork"
+  },
   "ui": {
     "uiTitle": "UI / UX Design",
     "designSoftware": "Graphic Design Software",

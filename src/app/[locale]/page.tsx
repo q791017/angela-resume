@@ -35,6 +35,8 @@ export default function HomePage() {
 
   const [isTop, setIsTop] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const [nextSectionName, setNextSectionName] = useState<string | null>('section.top');
+  const [prevSectionName, setPrevSectionName] = useState<string | null>('section.summary');
   const [resumeLoading, setResumeLoading] = useState(0);
   const [resumeData, setResumeData] = useState<ResumeDataProps | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +47,16 @@ export default function HomePage() {
   const developRef = useRef<HTMLDivElement>(null);
   const uiRef = useRef<HTMLDivElement>(null);
 
-  const sections = useMemo(() => [topRef, summaryRef, experienceRef, developRef, uiRef], []);
+  const sections = useMemo(
+    () => [
+      { name: 'section.top', ref: topRef },
+      { name: 'section.summary', ref: summaryRef },
+      { name: 'section.experience', ref: experienceRef },
+      { name: 'section.project', ref: developRef },
+      { name: 'section.ui', ref: uiRef },
+    ],
+    []
+  );
 
   const currentIndex = useRef(0);
 
@@ -83,7 +94,7 @@ export default function HomePage() {
       const windowHeight = window.innerHeight;
       const pageHeight = document.documentElement.scrollHeight;
       for (let i = 0; i < sections.length; i++) {
-        const section = sections[i].current;
+        const section = sections[i].ref.current;
         if (section) {
           const offsetTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
@@ -91,6 +102,8 @@ export default function HomePage() {
             currentIndex.current = i;
             setIsTop(i === 0);
             setIsBottom(i === sections.length - 1 || scrollY + windowHeight >= pageHeight - 50);
+            setPrevSectionName(i > 0 ? sections[i - 1].name : null);
+            setNextSectionName(i < sections.length - 1 ? sections[i + 1].name : null);
             break;
           }
         }
@@ -131,7 +144,7 @@ export default function HomePage() {
   const scrollUp = () => {
     if (currentIndex.current > 0) {
       currentIndex.current--;
-      sections[currentIndex.current].current?.scrollIntoView({
+      sections[currentIndex.current].ref.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
@@ -141,7 +154,7 @@ export default function HomePage() {
   const scrollDown = () => {
     if (currentIndex.current < sections.length - 1) {
       currentIndex.current++;
-      sections[currentIndex.current].current?.scrollIntoView({
+      sections[currentIndex.current].ref.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
@@ -149,7 +162,7 @@ export default function HomePage() {
   };
 
   const scrollTop = () => {
-    sections[0].current?.scrollIntoView({
+    sections[0].ref.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -163,16 +176,15 @@ export default function HomePage() {
     <div className="w-full min-h-screen relative">
       <Image src={backgroundImage} alt="background-image" className="fixed z-0 h-screen" />
       <div className="z-10 relative flex w-full justify-between">
-        <div className="fixed p-5 h-screen flex flex-col justify-end gap-10">
-          <div className="flex flex-col gap-6">
+        <div className="fixed h-screen flex flex-col justify-end gap-10 p-3 sm:p-5 ">
+          <div className="hidden flex-col gap-6 sm:flex">
             <ControlButton
               ariaLabel="to previous item"
               icon={<ChevronUp />}
               onClick={scrollUp}
-              className={[
-                isTop ? 'opacity-40 !cursor-not-allowed' : '',
-                isBottom ? 'hidden' : '',
-              ].join('')}
+              buttonText={isTop || !prevSectionName ? '' : t(prevSectionName)}
+              isDisable={!!isTop}
+              className={isBottom ? 'hidden' : ''}
             />
             <ControlButton
               ariaLabel="to top"
@@ -184,14 +196,15 @@ export default function HomePage() {
               ariaLabel="to next item"
               icon={<ChevronDown />}
               onClick={scrollDown}
-              className={isBottom ? 'opacity-40 !cursor-not-allowed' : ''}
+              buttonText={isBottom || !nextSectionName ? '' : t(nextSectionName)}
+              isDisable={!!isBottom}
             />
           </div>
           <ControlButton
             onClick={() => translateOnClick(locale === 'en-US' ? 'zh-TW' : 'en-US')}
             ariaLabel="Language Switch"
             icon={<Translate />}
-            buttonText={t(`locale.${locale}`)}
+            buttonText={t(`locale.${locale === 'en-US' ? 'zh-TW' : 'en-US'}`)}
           />
         </div>
         <div className="flex w-full flex-col py-5 gap-20 px-5 max-w-screen-lg mx-auto sm:py-10 sm:px-20 bg-white/50 shadow-customize">
@@ -320,7 +333,7 @@ export default function HomePage() {
                   className="rounded-md border border-gray-200 "
                 />
               </a>
-              <div className="ml-4 flex flex-col gap-4">
+              <div className="ml-4 w-full flex flex-col gap-4">
                 {resumeData.projectInfoTool.map(({ title, items }) => (
                   <div key={title} className="flex flex-col gap-2">
                     <div className="font-semibold">{t(`project.${title}`)}</div>
@@ -348,7 +361,7 @@ export default function HomePage() {
                     ))}
                   </div>
                 ))}
-                <div className="flex gap-5">
+                <div className="flex w-full flex-wrap gap-5">
                   <RegButton
                     buttonHref="https://github.com/FriendshipHouse/catholic-friendship-app"
                     ariaLabel="Github Page"
